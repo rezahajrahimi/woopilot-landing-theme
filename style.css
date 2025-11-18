@@ -28,11 +28,14 @@ License: GPL v2 or later
     box-sizing: border-box;
 }
 
+/* Ensure images can't force horizontal scroll */
+img { max-width: 100%; height: auto; display: block; }
+
 a {
     color: inherit;
 }
 
-body {
+html, body {
     margin: 0;
     background: radial-gradient(circle at top right, #1a1a2e, transparent 50%),
         radial-gradient(circle at bottom left, #16213e, transparent 50%),
@@ -105,10 +108,41 @@ body {
 
 .header-cta { display: flex; align-items: center; gap: 0.5rem; }
 
+/* Visually hide element but remain accessible to screen readers */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Skip link appearance when focused */
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -40px;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    z-index: 1000;
+    text-decoration: none;
+}
+.skip-link:focus {
+    top: 1rem;
+}
+
 @media (max-width: 960px) {
     .primary {
         position: fixed;
-        inset: 78px 12px auto auto;
+        top: 78px;
+        right: 12px;
+        left: auto;
         flex-direction: column;
         background: var(--bg-panel-strong);
         border: 1px solid var(--border);
@@ -225,6 +259,7 @@ section.is-visible {
 .hero {
     position: relative;
     padding: 5rem 0;
+    overflow-x: hidden; /* prevent decorative elements from adding horizontal scroll */
 }
 
 .hero-glow {
@@ -239,12 +274,12 @@ section.is-visible {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 420px;
+    grid-template-columns: 1fr minmax(220px, 420px);
     gap: 2rem;
     align-items: center;
 }
 
-.hero-copy { z-index: 1; }
+.hero-copy { z-index: 1; min-width: 0; }
 
 .hero-lede {
     color: var(--text-muted);
@@ -263,7 +298,12 @@ section.is-visible {
     z-index: 1;
 }
 
-.hero-visual { z-index: 1; }
+.hero-visual { z-index: 1; min-width: 0; }
+
+/* Add min-width: 0 on grid children to avoid content forcing overflow on narrow viewports */
+.pillars-grid, .features-grid, .posts-grid, .testimonials-carousel {
+    min-width: 0;
+}
 
 @media (max-width: 960px) {
     .hero-grid {
@@ -759,7 +799,7 @@ body.blog-theme {
 /* Posts Grid */
 .posts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -772,6 +812,7 @@ body.blog-theme {
     overflow: hidden;
     transition: all 0.3s ease;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    min-width: 0; /* avoid intrinsic size causing overflow */
 }
 
 .post-card:hover {
@@ -1577,6 +1618,14 @@ body.blog-theme {
     margin: 1.5rem 0;
 }
 
+/* Prevent tables in post content from causing overflow on small viewports */
+.post-content table {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    overflow-x: auto;
+}
+
 .post-content pre code {
     background: none;
     padding: 0;
@@ -1730,6 +1779,9 @@ body.blog-theme {
     .social-links {
         justify-content: center;
     }
+
+    /* Ensure posts grid uses single column on narrow viewports to avoid horizontal overflow */
+    .posts-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {

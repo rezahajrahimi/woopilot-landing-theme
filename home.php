@@ -1,6 +1,6 @@
 <?php get_header('blog'); ?>
 
-<main class="blog-main">
+<main id="main-content" class="blog-main">
     <div class="container">
         <header class="blog-header">
             <h1><?php echo esc_html( get_theme_mod('blog_title', 'نوشته‌های اخیر') ); ?></h1>
@@ -14,7 +14,7 @@
                         <?php if (has_post_thumbnail()) : ?>
                             <div class="post-thumbnail">
                                 <a href="<?php the_permalink(); ?>">
-                                    <?php the_post_thumbnail('medium_large'); ?>
+                                    <?php the_post_thumbnail('medium_large', array('loading' => 'lazy', 'decoding' => 'async', 'sizes' => '(max-width: 768px) 100vw, 33vw')); ?>
                                 </a>
                             </div>
                         <?php endif; ?>

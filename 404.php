@@ -1,6 +1,6 @@
 <?php get_header('blog'); ?>
 
-<main class="error-404">
+<main id="main-content" class="error-404">
     <div class="container">
         <div class="error-content">
             <div class="error-code">404</div>

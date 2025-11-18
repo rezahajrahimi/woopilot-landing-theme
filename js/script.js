@@ -54,10 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const primaryNav = document.querySelector('.primary');
     if (menuToggle && primaryNav) {
+        const menuSrText = menuToggle.querySelector('.sr-only');
         menuToggle.addEventListener('click', () => {
             const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            const newState = expanded ? 'false' : 'true';
+            menuToggle.setAttribute('aria-expanded', newState);
             primaryNav.classList.toggle('is-open');
+            if (menuSrText) {
+                menuSrText.textContent = newState === 'true' ? 'بستن منو' : 'باز کردن منو';
+            }
         });
         primaryNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {

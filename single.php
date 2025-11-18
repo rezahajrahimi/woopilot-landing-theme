@@ -1,6 +1,6 @@
 <?php get_header('blog'); ?>
 
-<main class="single-post">
+<main id="main-content" class="single-post">
     <div class="container">
         <?php while (have_posts()) : the_post(); ?>
             <article class="post-article">
@@ -43,7 +43,7 @@
 
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="post-thumbnail">
-                        <?php the_post_thumbnail('large'); ?>
+                        <?php the_post_thumbnail('large', array('loading' => 'lazy', 'decoding' => 'async', 'sizes' => '(max-width: 800px) 100vw, 800px')); ?>
                     </div>
                 <?php endif; ?>
 

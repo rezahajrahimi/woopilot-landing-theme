@@ -3,9 +3,26 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff" />
+    <?php if ( function_exists('is_singular') && is_singular() ) : ?>
+        <link rel="canonical" href="<?php echo esc_url( get_permalink() ); ?>" />
+    <?php else : ?>
+        <link rel="canonical" href="<?php echo esc_url( home_url() ); ?>" />
+    <?php endif; ?>
+    <?php // Basic Open Graph tags for blog pages
+    $og_title = get_bloginfo('name');
+    $og_description = get_bloginfo('description');
+    $og_url = home_url();
+    ?>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<?php echo esc_attr($og_title); ?>" />
+    <meta property="og:description" content="<?php echo esc_attr($og_description); ?>" />
+    <meta property="og:url" content="<?php echo esc_url($og_url); ?>" />
+    <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
     <?php wp_head(); ?>
 </head>
 <body <?php body_class('blog-theme'); ?>>
+    <a class="skip-link sr-only" href="#main-content">رفتن به محتوا</a>
     <header class="site-header blog-header">
         <div class="container header-inner">
             <div class="brand">

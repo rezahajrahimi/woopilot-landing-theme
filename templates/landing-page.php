@@ -3,32 +3,12 @@
 Template Name: Landing Page
 */
 
-// Add SEO meta tags if needed
-add_action('wp_head', function() {
-    echo '<meta name="description" content="اپلیکیشن WooPilot - ابزار قدرتمند و هوشمند برای صاحبان فروشگاه‌های آنلاین ووکامرس با هوش مصنوعی">';
-    echo '<meta name="keywords" content="ووکامرس, هوش مصنوعی, مدیریت فروشگاه, WooPilot">';
-    // Structured data for app
-    echo '<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "WooPilot",
-        "description": "ابزار قدرتمند و هوشمند برای صاحبان فروشگاه‌های آنلاین ووکامرس",
-        "operatingSystem": "Android, iOS",
-        "applicationCategory": "BusinessApplication",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "IRR"
-        }
-    }
-    </script>';
-});
+// SEO meta and structured data are handled in functions.php now; extra per-template tags removed
 
 get_header();
 ?>
 
-<main class="landing-page">
+<main id="main-content" class="landing-page">
     <section class="hero" role="region" aria-labelledby="hero-heading">
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="container hero-grid">
@@ -60,7 +40,7 @@ get_header();
             </div>
             <div class="hero-visual">
                 <div class="device-frame">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockup.svg" alt="نمای اپلیکیشن WooPilot" />
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockup.svg" alt="نمای اپلیکیشن WooPilot" loading="lazy" decoding="async" width="360" height="780" />
                 </div>
                 <div class="hero-badge">
                     <span>پیش‌نمایش زنده</span>

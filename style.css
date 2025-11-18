@@ -44,13 +44,66 @@ body {
     overflow-x: hidden;
 }
 
+/* Header / Container base layout (landing theme) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.site-header {
+    position: relative;
+    z-index: 60;
+    padding: 1rem 0;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4rem;
+}
+
+.brand { display: flex; flex-direction: column; gap: 0.25rem; }
+
+.brand-name { font-size: 1.25rem; font-weight: 700; color: var(--accent); }
+
+.brand-tagline { font-size: 0.85rem; color: var(--text-muted); }
+
+/* Primary nav (desktop) */
+.primary {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.primary a {
     color: var(--text);
+    text-decoration: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: all 0.16s ease;
+}
+
+.primary a:hover { transform: translateY(-2px); }
+
+/* Toggle for mobile */
+.menu-toggle {
+    display: none;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     padding: 0.6rem 1rem;
     border-radius: 999px;
     font-weight: 600;
     cursor: pointer;
     backdrop-filter: blur(10px);
+    color: var(--text);
 }
+
+.header-cta { display: flex; align-items: center; gap: 0.5rem; }
 
 @media (max-width: 960px) {
     .primary {
@@ -166,6 +219,59 @@ section.is-visible {
     margin: 0;
     color: var(--text-muted);
     font-size: 0.95rem;
+}
+
+/* Landing page hero layout */
+.hero {
+    position: relative;
+    padding: 5rem 0;
+}
+
+.hero-glow {
+    position: absolute;
+    inset: -5% -10% auto -10%;
+    width: 140%;
+    height: 50%;
+    background: radial-gradient(closest-side at 25% 20%, rgba(124, 58, 237, 0.09), rgba(124,58,237,0) 35%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 2rem;
+    align-items: center;
+}
+
+.hero-copy { z-index: 1; }
+
+.hero-lede {
+    color: var(--text-muted);
+    margin-top: 0.8rem;
+    font-size: 1.05rem;
+}
+
+.hero-actions { display: flex; gap: 0.8rem; margin-top: 1.25rem; z-index: 1; }
+
+.hero-metrics {
+    margin-top: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    gap: 1rem;
+    color: var(--text-muted);
+    z-index: 1;
+}
+
+.hero-visual { z-index: 1; }
+
+@media (max-width: 960px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    .device-frame { transform: translateY(0); }
+    .hero-actions { justify-content: center; }
 }
 
 .btn {

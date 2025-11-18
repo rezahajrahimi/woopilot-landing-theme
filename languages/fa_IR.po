@@ -1,0 +1,2 @@
+# Translation file for WooPilot Landing Theme
+# This is a placeholder. Use Poedit or similar to generate proper .po and .mo files.

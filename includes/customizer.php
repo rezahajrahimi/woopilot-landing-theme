@@ -1197,6 +1197,25 @@ function woopilot_landing_customizer_settings($wp_customize) {
         'description' => __('شناسه Google Analytics (مثال: G-XXXXXXXXXX یا UA-XXXXXXXXX-X)', 'woopilot-landing'),
     ));
 
+    // ===== تنظیمات SEO =====
+    $wp_customize->add_section('woopilot_seo_section', array(
+        'title' => __('🔎 تنظیمات SEO', 'woopilot-landing'),
+        'panel' => 'woopilot_landing_panel',
+        'priority' => 75,
+        'description' => __('تنظیمات SEO — توضیحات متا سایت و گزینه‌های مرتبط', 'woopilot-landing'),
+    ));
+
+    $wp_customize->add_setting('meta_description', array(
+        'default' => '',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    $wp_customize->add_control('meta_description', array(
+        'label' => __('📝 توضیحات متا سایت', 'woopilot-landing'),
+        'section' => 'woopilot_seo_section',
+        'type' => 'textarea',
+        'description' => __('توضیح متای کلی سایت که در نتایج جستجو نشان داده می‌شود (اگر توضیح متای صفحه/پست مشخص نشده باشد).', 'woopilot-landing'),
+    ));
+
     // Add live preview support
     if ($wp_customize->is_preview() && !is_admin()) {
         add_action('wp_footer', 'woopilot_landing_customizer_preview');

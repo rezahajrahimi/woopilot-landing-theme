@@ -20,11 +20,29 @@ add_filter('wp_resource_hints', 'woopilot_landing_resource_hints', 10, 2);
 
 // Provide a basic site-wide meta description if none provided by plugins
 function woopilot_landing_meta_description() {
-    if ( is_singular() ) {
+    // Manual override from customizer
+    $custom_desc = function_exists('get_theme_mod') ? get_theme_mod('meta_description', '') : '';
+    if ( function_exists('is_singular') && is_singular() ) {
         global $post;
-        $desc = has_excerpt( $post ) ? get_the_excerpt( $post ) : wp_trim_words( wp_strip_all_tags( $post->post_content ), 30 );
+        if ( isset( $post ) && has_excerpt( $post ) ) {
+            $desc = get_the_excerpt( $post );
+        } elseif ( isset( $post ) ) {
+            $desc = wp_trim_words( wp_strip_all_tags( $post->post_content ), 30 );
+        } elseif ( !empty( $custom_desc ) ) {
+            $desc = $custom_desc;
+        } else {
+            $desc = get_bloginfo( 'description' );
+        }
     } else {
-        $desc = get_bloginfo( 'description' );
+        if ( !empty( $custom_desc ) ) {
+            $desc = $custom_desc;
+        } else {
+            $desc = get_bloginfo( 'description' );
+        }
+    }
+    // If popular SEO plugins are active, they manage metadesc — don't duplicate
+    if ( defined('WPSEO_VERSION') || defined('AIOSEO_VERSION') ) {
+        return;
     }
     if ( $desc ) {
         echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . PHP_EOL;

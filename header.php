@@ -53,7 +53,7 @@
                 <a href="#cta" class="btn btn-primary">همراه شوید</a>
             </nav>
             <div class="header-cta">
-                <a href="<?php echo esc_url( get_theme_mod('download_link', 'http://app.woopilot.ir/' ) ); ?>" class="btn btn-primary" aria-label="ثبت نام در WooPilot">ثبت نام</a>
+                <a href="<?php echo esc_url( get_theme_mod('http://app.woopilot.ir', 'http://app.woopilot.ir/' ) ); ?>" class="btn btn-primary" aria-label="ثبت نام در WooPilot">ثبت نام</a>
             </div>
         </div>
     </header>

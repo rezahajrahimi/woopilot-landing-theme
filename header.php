@@ -39,7 +39,7 @@
         <div class="container header-inner">
             <div class="brand">
                 <span class="brand-name"><?php bloginfo('name'); ?></span>
-                <p class="brand-tagline">تیمی از مهندسان و طراحان که به آرامش دیجیتال می‌نگرند</p>
+                <p class="brand-tagline">دستیار وردپرس شما، قدرت گرفته از AI</p>
             </div>
             <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="باز کردن منو">
                 <span class="sr-only">باز کردن منو</span>
@@ -53,7 +53,7 @@
                 <a href="#cta" class="btn btn-primary">همراه شوید</a>
             </nav>
             <div class="header-cta">
-                <a href="<?php echo esc_url( get_theme_mod('download_link', '#' ) ); ?>" class="btn btn-primary" aria-label="دانلود WooPilot">دانلود</a>
+                <a href="<?php echo esc_url( get_theme_mod('http://app.woopilot.ir/', 'http://app.woopilot.ir/' ) ); ?>" class="btn btn-primary" aria-label="ثبت نام در WooPilot">ثبت نام</a>
             </div>
         </div>
     </header>

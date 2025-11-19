@@ -13,12 +13,12 @@ get_header();
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="container hero-grid">
             <div class="hero-copy">
-                <p class="eyebrow"><?php echo esc_html( get_theme_mod('hero_eyebrow', 'نسل جدید مدیریت فروشگاه') ); ?></p>
+                <p class="eyebrow"><?php echo esc_html( get_theme_mod('hero_eyebrow', 'دستیار هوشمند وردپرس') ); ?></p>
                 <h1 id="hero-heading"><?php echo esc_html( get_theme_mod('hero_title', 'WooPilot، دستیار آسمانی برای فروشندگان ووکامرس') ); ?></h1>
                 <p class="hero-lede"><?php echo esc_html( get_theme_mod('hero_subtitle', 'یک تجربه کاملاً پویای تیره‌رنگ، طراحی‌شده برای تیم‌هایی که به نوآوری اعتقاد دارند و به قدرت هوش مصنوعی برای رشد پایدار اعتماد دارند.') ); ?></p>
                 <div class="hero-actions">
-                    <a href="<?php echo esc_url( get_theme_mod('hero_primary_link', '#') ); ?>" class="btn btn-primary" data-cta="download"><?php echo esc_html( get_theme_mod('hero_primary_text', 'دانلود از Cafe Bazaar') ); ?></a>
-                    <a href="<?php echo esc_url( get_theme_mod('hero_secondary_link', '#') ); ?>" class="btn btn-ghost" data-cta="login"><?php echo esc_html( get_theme_mod('hero_secondary_text', 'ورود به پنل هوشمند') ); ?></a>
+                    <a href="<?php echo esc_url( get_theme_mod('hero_primary_link', 'https://cafebazaar.ir/app/com.example.woopilot') ); ?>" class="btn btn-primary" data-cta="download"><?php echo esc_html( get_theme_mod('hero_primary_text', 'دانلود از Cafe Bazaar') ); ?></a>
+                    <a href="<?php echo esc_url( get_theme_mod('hero_secondary_link', 'http://app.woopilot.ir/') ); ?>" class="btn btn-ghost" data-cta="login"><?php echo esc_html( get_theme_mod('hero_secondary_text', 'ورود به پنل هوشمند') ); ?></a>
                 </div>
                 <div class="hero-metrics" aria-label="اعتماد به WooPilot">
                     <div>
@@ -40,11 +40,11 @@ get_header();
             </div>
             <div class="hero-visual">
                 <div class="device-frame">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockup.svg" alt="نمای اپلیکیشن WooPilot" loading="lazy" decoding="async" width="360" height="780" />
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mockup.jpg" alt="نمای اپلیکیشن WooPilot" loading="lazy" decoding="async" width="360" height="780" />
                 </div>
                 <div class="hero-badge">
                     <span>پیش‌نمایش زنده</span>
-                    <p>داشبورد تصمیم‌سازی مبتنی بر هوش مصنوعی</p>
+                    <p>داشبورد پیشرفته مبتنی بر هوش مصنوعی</p>
                 </div>
             </div>
         </div>
@@ -183,8 +183,8 @@ get_header();
                     <p><?php echo esc_html( get_theme_mod('cta_description', 'راه‌اندازی رایگان در کمتر از ۵ دقیقه؛ تیم پشتیبانی ما در کنار شماست تا هر تصمیمی با اعتماد کامل گرفته شود.') ); ?></p>
                 </div>
                 <div class="cta-actions">
-                    <a href="<?php echo esc_url( get_theme_mod('cta_primary_link', '#') ); ?>" class="btn btn-primary" data-cta="download"><?php echo esc_html( get_theme_mod('cta_primary_text', 'شروع فوری') ); ?></a>
-                    <a href="<?php echo esc_url( get_theme_mod('cta_secondary_link', '#') ); ?>" class="btn btn-outline" data-cta="contact"><?php echo esc_html( get_theme_mod('cta_secondary_text', 'گفتگوی سریع با تیم') ); ?></a>
+                    <a href="<?php echo esc_url( get_theme_mod('cta_primary_link', 'http://app.woopilot.ir/') ); ?>" class="btn btn-primary" data-cta="download"><?php echo esc_html( get_theme_mod('cta_primary_text', 'ثبت نام و شروع') ); ?></a>
+                    <a href="<?php echo esc_url( get_theme_mod('cta_secondary_link', 'http://wa.me/989031233677') ); ?>" class="btn btn-outline" data-cta="contact"><?php echo esc_html( get_theme_mod('cta_secondary_text', 'گفتگوی سریع با تیم') ); ?></a>
                 </div>
             </div>
         </div>
